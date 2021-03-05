@@ -3,14 +3,16 @@ var app = angular.module('CastleCompany', ['ngMockE2E']);
 app.controller('CastleBuilderController', function($scope) {
 
   $scope.landHeights = [];
-
+  
+  // Function for removing the consecutive duplicates
   $scope.removeConsecutiveDuplicates = function(array) {
     return array.filter(function(value, position, array) {
       var previousValue = array[position - 1];
       return position === 0 || value !== previousValue;
     });
   };
-
+  
+  // Function for counting the building places when stretch of land is provided
   function countBuildingPlaces(landHeights) {
 
     var buildingPlaces = 0;
