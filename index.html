@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="CastleCompany">
+
+<head>
+  <meta charset="utf-8" />
+  <title>The Castle Company assignment</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <script>
+    document.write('<base href="' + document.location + '" />');
+  </script>
+  
+  <link data-require="jasmine@*" data-semver="2.0.0" rel="stylesheet" href="//cdn.jsdelivr.net/jasmine/2.0.0/jasmine.css" />
+  <script data-require="jasmine@*" data-semver="2.0.0" src="//cdn.jsdelivr.net/jasmine/2.0.0/jasmine.js"></script>
+  <script data-require="jasmine@*" data-semver="2.0.0" src="//cdn.jsdelivr.net/jasmine/2.0.0/jasmine-html.js"></script>
+  <!--script data-require="jasmine@*" data-semver="2.0.0" src="//cdn.jsdelivr.net/jasmine/2.0.0/boot.js"></script-->
+  <script data-require="angular.js@*" data-semver="1.3.0-beta.5" src="https://code.angularjs.org/1.3.0-beta.5/angular.js"></script>
+  <script data-require="angular-mocks@*" data-semver="1.2.16" src="https://code.angularjs.org/1.2.16/angular-mocks.js"></script>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <script src="app.js"></script>
+</head>
+
+<body ng-controller="CastleBuilderController">
+
+  <div class="col-lg-4">
+
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <p>Part 1 Castle Company Assighnment.</p>
+         <p>please enter of data with comma saperated value ex:2,6,6,6,3</p>
+          <form name="inputForm">
+            <div class="input-group">
+              <input type="text" class="form-control" name="landHeights" ng-model="landHeights" ng-list required placeholder="please enter array of data...">
+              <span class="input-group-btn">
+                <button class="btn" ng-click="buildCastles()" type="button">Estimate</button>
+              </span>
+            </div>
+            <span role="alert" ng-show="inputForm.landHeights.$touched">
+              <span class="error" ng-show="inputForm.landHeights.$error.required">
+                The Castle Company can´t build on empty land, please enter some values and try again.
+              </span>
+            </span>
+          </form>
+
+        <br/>
+        <div ng-show="castles">
+          <span class="glyphicon glyphicon-tower" aria-hidden="true"></span>
+          {{ castles }} {{castles == 1 ? 'Castle' : 'Castles'}} can be built.
+          </div>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
